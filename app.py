@@ -140,11 +140,26 @@ def serve_audio_segment():
         return f"Error extracting audio segment: {str(e)}", 500
 
 @app.route('/')
+# def index():
+#     """
+#     Renders the main HTML page for the client-side audio player.
+#     """
+#     return render_template('index.html') 
 def index():
-    """
-    Renders the main HTML page for the client-side audio player.
-    """
-    return render_template('index.html') 
+    return '''
+    <h1>Hello from Automated CI/CD Pipeline!</h1>
+    <p><strong>Version:</strong> 2.0 - Automated Deployment</p>
+    <p><strong>Deployed via:</strong> GitHub Actions + AWS SSM</p>
+    <p><strong>Assignment:</strong> Automated EC2 Deployment</p>
+    '''
+@app.route('/health')
+def health():
+    return {
+        'status': 'healthy',
+        'version': '2.0',
+        'deployment_method': 'automated',
+        'timestamp': datetime.now().isoformat()
+    }
 
 @app.route('/select_directory', methods=['POST'])
 def select_directory():
@@ -571,4 +586,4 @@ def auto_load_data():
 if __name__ == '__main__':
     # Auto-load CSV and audio files on startup
     auto_load_data()
-    app.run(debug=True, host='0.0.0.0', port=3000)
+    app.run(debug=True, host='0.0.0.0', port=5000)
