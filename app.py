@@ -148,7 +148,7 @@ def serve_audio_segment():
 def index():
     return '''
     <h1>Hello from Automated CI/CD Pipeline!</h1>
-    <p><strong>Version:</strong> 2.0 - Automated Deployment</p>
+    <p><strong>Version:</strong> 2.0 - Automated Deployment - Test</p>
     <p><strong>Deployed via:</strong> GitHub Actions + AWS SSM</p>
     <p><strong>Assignment:</strong> Automated EC2 Deployment</p>
     '''
